@@ -1,0 +1,20 @@
+@import "mixins";
+@import "fonts";
+@import "setting";
+@import "variables";
+@import "button";
+
+@import "header";
+@import "main";
+@import "slider";
+@import "preview";
+
+body {
+    background-color: #e5e5e5;
+}
+
+.container {
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 0 9px;
+}

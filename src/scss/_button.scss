@@ -1,0 +1,21 @@
+.button {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__light {
+        background-color: #94a6a6;
+        border-bottom-left-radius: 18px;
+        &-active {
+            background-color: #fff3da; 
+        }
+    }
+    &__dark {
+        background-color: #94a6a6;
+        &-active {
+            background-color: #000000;
+        }
+    }
+}

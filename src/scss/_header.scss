@@ -1,0 +1,30 @@
+.header {
+    padding: 27px 0 20px;
+    margin-bottom: 8px;
+    &__container {
+        position: relative;
+    }
+    .logo {
+        position: absolute;
+        right: 0;
+        left: 0;
+    }
+
+    .nav-bar {
+        &__list {
+            display: flex;
+            justify-content: flex-end;
+        }
+        &__item:not(:first-child) {
+            margin-left: 60px;
+        }
+        &__link {
+            font-family: "SFCompactDisplay-Regular";
+            font-weight: 400;
+            font-size: 21px;
+            line-height: 28px;
+            text-transform: uppercase;
+            color: #3d9090;
+        }
+    }
+}

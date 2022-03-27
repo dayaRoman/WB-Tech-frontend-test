@@ -1,0 +1,80 @@
+.main {
+    padding-bottom: 30px;
+    min-height: 100%;
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0 30px;
+        position: relative;
+    }
+    &__content {
+        min-height: 100%;
+        hr {
+            height: 1px;
+            border: none;
+            background-color: #c4c4c4;
+            margin-left: -100%;
+        }
+    }
+    &__about {
+        padding: 83px 67px 80px 6px;
+        min-height: 45%;
+        p {
+            font-family: "SFCompactDisplay-Thin";
+            font-weight: 100;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: 0.055em;
+            color: #000;
+        }
+    }
+    &__feature {
+        position: relative;
+        min-height: 55%;
+        .feature__general {
+            padding-top: 158px;
+            padding-left: 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 300px;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 25px;
+                right: 50%;
+                z-index: -1;
+
+                display: block;
+                border-radius: 50%;
+                width: 462.17px;
+                height: 450.47px;
+                background-color: #e4d7b9;
+            }
+            p {
+                font-family: "SFCompactDisplay-Regular";
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 21px;
+                letter-spacing: 0.055em;
+                span {
+                    font-family: "SFCompactDisplay-Thin";
+                    font-weight: 100;
+                    font-size: 16px;
+                    line-height: 21px;
+                    letter-spacing: 0.055em;
+                    color: #000;
+                    text-transform: capitalize;
+                }
+            }
+        }
+        .feature__image {
+            position: absolute;
+            top: 0;
+            left: 40%;
+            max-width: 250px;
+            max-height: 70%;
+        }
+    }
+}
