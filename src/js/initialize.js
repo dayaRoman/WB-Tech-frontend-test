@@ -1,8 +1,7 @@
-export default function (data) {
+export function initialize(data) {
     const lampFeatures = document.querySelector(".feature__general");
     const lampImage = document.querySelector(".feature__image");
     const previewLamp = document.querySelector(".preview__lamp");
-    const slider = document.querySelector(".slider__list");
 
     const lampMaterial = lampFeatures.querySelector(".feature__material span");
     const lampDimensions = lampFeatures.querySelector(
@@ -15,13 +14,17 @@ export default function (data) {
         ".feature__electrification span"
     );
 
-    lampImage.src = `${data[0].image}`;
-    lampMaterial.innerHTML = `${data[0].material}`;
-    lampDimensions.innerHTML = `H ${data[0].height} x W ${data[0].width} x D ${data[0].width}`;
-    lampNetWeight.innerHTML = `${data[0].weight}kg`;
-    lampElectrification.innerHTML = `${data[0].electrification}`;
+    lampImage.src = `${data.image}`;
+    lampMaterial.innerHTML = `${data.material}`;
+    lampDimensions.innerHTML = `H ${data.height} x W ${data.width} x D ${data.width}`;
+    lampNetWeight.innerHTML = `${data.weight}kg`;
+    lampElectrification.innerHTML = `${data.electrification}`;
 
-    previewLamp.src = `${data[0].image}`;
+    previewLamp.src = `${data.image}`;
+}
+
+export function initializeSlider(data) {
+    const slider = document.querySelector(".slider__list");
 
     for (let lamp of data) {
         let div = document.createElement("div");
@@ -33,5 +36,5 @@ export default function (data) {
         slider.append(div);
     }
 
-    slider.querySelector(".slider__item").classList.add("slider__item-active");
+    slider.firstChild.classList.add("slider__item-active");
 }

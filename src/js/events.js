@@ -1,33 +1,82 @@
+import { initialize } from "./initialize.js";
 import serverData from "./serverResponse.js";
 
-document.onload = serverData();
+const response = (document.onload = serverData());
 
 const slider = document.querySelector(".slider");
-let sliderItems = slider.getElementsByClassName("slider__item");
+const sliderItems = slider.getElementsByClassName("slider__item");
+const previewRoom = document.querySelectorAll(".preview__room");
+const previewLamp = document.querySelector(".preview__lamp");
+
+var index = 0;
 
 slider.addEventListener("click", function (event) {
     let target = event.target;
-    //let sliderItems = this.querySelectorAll(".slider__item");
+    let darkModeBtn = slider.querySelector(".button__dark");
+    let lightModeBtn = slider.querySelector(".button__light");
+
     if (
         target.classList.contains("slider__item") ||
         target.closest(".slider__item")
     ) {
         if (target.classList.contains("slider__item")) {
-            Array.prototype.forEach.call(sliderItems, function (item) {
-                if (item.classList.contains("slider__item-active")) {
-                    item.classList.remove("slider__item-active");
+            index = Array.prototype.indexOf.call(sliderItems, target);
+
+            toggleClassActive(target);
+            response.then((data) => {
+                initialize(data[index]);
+                if (data[index].isDarkMode) {
+                    darkModeBtn.style.cursor = "pointer";
+                    darkModeBtn.classList.add("button__dark-active");
+                } else {
+                    darkModeBtn.style.cursor = "default";
+                    darkModeBtn.classList.remove("button__dark-active");
                 }
             });
-            target.classList.add("slider__item-active");
         } else {
-            let parent = target.closest(".slider__item");
-            Array.prototype.forEach.call(sliderItems, function (item) {
-                if (item.classList.contains("slider__item-active")) {
-                    item.classList.remove("slider__item-active");
+            target = target.closest(".slider__item");
+            index = Array.prototype.indexOf.call(sliderItems, target);
+
+            toggleClassActive(target);
+            response.then((data) => {
+                initialize(data[index]);
+                if (data[index].isDarkMode) {
+                    darkModeBtn.style.cursor = "pointer";
+                    darkModeBtn.classList.add("button__dark-active");
+                } else {
+                    darkModeBtn.style.cursor = "default";
+                    darkModeBtn.classList.remove("button__dark-active");
                 }
             });
-            parent.classList.add("slider__item-active");
         }
+
+        previewRoom[0].classList.add("active");
+        previewRoom[1].classList.remove("active");
+        previewLamp.style.display = "block";
     }
-    //console.log(sliderItems);
+
+    if (target.classList.contains("button__dark-active")) {
+        previewRoom.forEach((image) => {
+            image.classList.toggle("active");
+        });
+        previewLamp.style.display = "none";
+        darkModeBtn.disabled = true;
+        lightModeBtn.style.cursor = "pointer";
+        lightModeBtn.onclick = function () {
+            previewRoom[0].classList.add("active");
+            previewRoom[1].classList.remove("active");
+            previewLamp.style.display = "block";
+
+            darkModeBtn.disabled = false;
+        };
+    }
 });
+
+function toggleClassActive(target) {
+    Array.prototype.forEach.call(sliderItems, function (item) {
+        if (item.classList.contains("slider__item-active")) {
+            item.classList.remove("slider__item-active");
+        }
+    });
+    target.classList.add("slider__item-active");
+}
