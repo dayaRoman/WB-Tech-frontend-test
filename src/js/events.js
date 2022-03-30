@@ -56,12 +56,15 @@ slider.addEventListener("click", function (event) {
     }
 
     if (target.classList.contains("button__dark-active")) {
-        previewRoom.forEach((image) => {
-            image.classList.toggle("active");
-        });
-        previewLamp.style.display = "none";
-        darkModeBtn.disabled = true;
-        lightModeBtn.style.cursor = "pointer";
+        darkModeBtn.onclick = function () {
+            previewRoom.forEach((image) => {
+                image.classList.toggle("active");
+            });
+            previewLamp.style.display = "none";
+            darkModeBtn.disabled = true;
+            lightModeBtn.style.cursor = "pointer";
+        };
+
         lightModeBtn.onclick = function () {
             previewRoom[0].classList.add("active");
             previewRoom[1].classList.remove("active");

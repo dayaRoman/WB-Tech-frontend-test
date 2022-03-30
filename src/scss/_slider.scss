@@ -1,39 +1,33 @@
 .slider {
+    margin-top: 3vh;
+    width: 8vw;
+    height: 20vw;
+    background-color: #bddddd;
+    border-radius: 14px 0 0 14px;
     &__list {
-        position: absolute;
-        right: -1%;
-        bottom: 100px;
-
-        height: 478px;
-        min-width: 178px;
-        border-radius: 18px;
-        background-color: #bddddd;
+        width: 8vw;
+        border-radius: 14px;
+        height: 18vw;
         overflow-y: auto;
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
-        padding-top: 17px;
-        padding-bottom: 20px;
     }
 
     &__item {
-        height: 131px;
-        width: 133px;
-        padding-bottom: 6px;
-        border-radius: 18px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        flex-shrink: 0;
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+        height: 6vw;
+        width: 6vw;
+        border-radius: 14px;
         background-color: rgba(white, 0);
 
         transition: opacity 0.5s ease;
         -webkit-transition: opacity 0.5s ease;
-        img {
-            max-height: 100%;
-        }
         &:hover {
             background-color: rgba(white, 0.25);
         }
@@ -42,12 +36,8 @@
         }
     }
     &__footer {
-        position: absolute;
-        bottom: 36px;
-        right: -1%;
         display: flex;
-        align-items: flex-end;
-        width: 178px;
-        height: 76px;
+        flex-direction: row;
+        height: 3.3vw;
     }
 }

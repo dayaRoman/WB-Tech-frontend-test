@@ -1,7 +1,6 @@
 @import "mixins";
 @import "fonts";
-@import "setting";
-@import "variables";
+@import "reset";
 @import "button";
 
 @import "header";
@@ -10,11 +9,12 @@
 @import "preview";
 
 body {
-    background-color: #e5e5e5;
+    background-color: #dbeeee;
+    letter-spacing: 0.055em;
 }
 
 .container {
-    max-width: 1540px;
+    max-width: 96.25vw;
     margin: 0 auto;
-    padding: 0 9px;
+    padding: 0 0.5vw;
 }
