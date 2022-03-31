@@ -8,7 +8,7 @@ const sliderItems = slider.getElementsByClassName("slider__item");
 const previewRoom = document.querySelectorAll(".preview__room");
 const previewLamp = document.querySelector(".preview__lamp");
 
-const darkModeBtn = slider.querySelector(".button__dark ");
+const darkModeBtn = slider.querySelector(".button__dark");
 const lightModeBtn = slider.querySelector(".button__light");
 
 var index = 0;
@@ -64,15 +64,17 @@ slider.addEventListener("click", function (event) {
         darkModeBtn.disabled = true;
         lightModeBtn.style.cursor = "pointer";
 
-        lightModeBtn.onclick = function () {
-            previewRoom[0].classList.add("active");
-            previewRoom[1].classList.remove("active");
-            previewLamp.style.display = "block";
-
-            darkModeBtn.disabled = false;
-        };
+        
     }
 });
+
+lightModeBtn.onclick = function () {
+    previewRoom[0].classList.add("active");
+    previewRoom[1].classList.remove("active");
+    previewLamp.style.display = "block";
+
+    darkModeBtn.disabled = false;
+};
 
 function toggleClassActive(target) {
     Array.prototype.forEach.call(sliderItems, function (item) {

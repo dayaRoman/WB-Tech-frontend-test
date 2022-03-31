@@ -1,4 +1,5 @@
 import { initialize, initializeSlider } from "./initialize.js";
+import preloader from "./preloader.js";
 
 export default async function () {
     const requestURL = "https://private-dcbb75-lampshop.apiary-mock.com/lamps";
@@ -52,16 +53,18 @@ export default async function () {
             isDarkMode: false,
         },
     ];
-
+    let loader = await preloader();
     let json = await fetch(requestURL)
         .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error: ${response.status}`);
             }
+            loader();
             return response.json();
         })
         .catch((err) => {
             console.error(`Fetch problem: ${err.message}`);
+            loader();
             return mock;
         });
 

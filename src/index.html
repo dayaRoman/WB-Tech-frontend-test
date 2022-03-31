@@ -68,18 +68,35 @@
                 </div>
             </div>
             <div class="preview">
-                <img
-                    src="img/previewRoom.png"
-                    alt="preview-room-light"
-                    class="preview__room active"
-                />
-                <img
-                    src="img/previewRoom-dark.png"
-                    alt="preview-room-dark"
-                    class="preview__room"
-                />
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcset="img/previewRoom2x.webp 2x"
+                    />
+                    <img
+                        src="img/previewRoom.png"
+                        srcset="img/previewRoom2x.png 2x"
+                        alt="preview-room-light"
+                        class="preview__room active"
+                    />
+                    </picture>
 
-                <img alt="preview-lamp" class="preview__lamp" />
+                    <picture>
+                    <source
+                        type="image/webp"
+                        srcset="img/previewRoom-dark2x.webp 2x"
+                    />
+                    <img
+                        src="img/previewRoom-dark.png"
+                        srcset="img/previewRoom-dark2x.png 2x"
+                        alt="preview-room-dark"
+                        class="preview__room"
+                    />
+                </picture>
+
+                <div class="preview__container">
+                    <img alt="preview-lamp" class="preview__lamp" />
+                </div>
             </div>
         </main>
     </body>
