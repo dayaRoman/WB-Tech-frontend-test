@@ -1,17 +1,17 @@
-#WB-Tech. Итоговое тестовое задание для стажеров на Frontend.
+# WB-Tech. Итоговое тестовое задание для стажеров на Frontend.
 
-#GitHub Pages
+# GitHub Pages
 
 <a href="https://dayaroman.github.io/WB-Tech-frontend-test/">Клик</a>
 
-#Установка
+# Установка
 
 <ol>
     <li>git clone https://github.com/dayaRoman/WB-Tech-frontend-test.git</li>
     <li>npm i</li>
 </ol>
 
-#Сборка
+# Сборка
 
 <h3>*Development Server</h3>
 
