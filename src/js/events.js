@@ -8,12 +8,13 @@ const sliderItems = slider.getElementsByClassName("slider__item");
 const previewRoom = document.querySelectorAll(".preview__room");
 const previewLamp = document.querySelector(".preview__lamp");
 
+const darkModeBtn = slider.querySelector(".button__dark ");
+const lightModeBtn = slider.querySelector(".button__light");
+
 var index = 0;
 
 slider.addEventListener("click", function (event) {
     let target = event.target;
-    let darkModeBtn = slider.querySelector(".button__dark");
-    let lightModeBtn = slider.querySelector(".button__light");
 
     if (
         target.classList.contains("slider__item") ||
@@ -56,14 +57,12 @@ slider.addEventListener("click", function (event) {
     }
 
     if (target.classList.contains("button__dark-active")) {
-        darkModeBtn.onclick = function () {
-            previewRoom.forEach((image) => {
-                image.classList.toggle("active");
-            });
-            previewLamp.style.display = "none";
-            darkModeBtn.disabled = true;
-            lightModeBtn.style.cursor = "pointer";
-        };
+        previewRoom.forEach((image) => {
+            image.classList.toggle("active");
+        });
+        previewLamp.style.display = "none";
+        darkModeBtn.disabled = true;
+        lightModeBtn.style.cursor = "pointer";
 
         lightModeBtn.onclick = function () {
             previewRoom[0].classList.add("active");
